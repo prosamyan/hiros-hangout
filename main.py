@@ -1,11 +1,10 @@
 import discord
+from discord.ext import commands
 
+client = commands.Bot(commands_prefix='*')
 
-discord.Intents.default()
-
-
-@bot.command(name='addrole', hidden=True)
-@has_permissions(administrator=True)
+@bot.command(name='blacklist', hidden=True)
+@has_permissions(administration=True)
 async def add_beta_role(ctx, role='beta-test'):
     with open('./beta_list.csv', 'r+') as beta_role_file:
         for item in beta_role_file:
@@ -23,3 +22,5 @@ async def add_beta_role(ctx, role='beta-test'):
                     print(f'Member not found.')
             else:
                 print(f'Role not found.')
+
+client.run('ODU4NTE0MTc2OTg4MTUxODY5.YNfPog.A5SAolqDKTr2HUMuzzRXyItItS8')
